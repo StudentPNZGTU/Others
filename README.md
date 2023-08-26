@@ -18,7 +18,9 @@
 	`sudo snap refresh intellij-idea-community`
 	
 	*Установку IDE выполнять через root*
+
 	2.2 Сделайте настройку согласно пункту 4: [в курсе](https://ais-school.notion.site/f82f87c3f5d549128c860d2cc3b01be1) ([*Pom.xml*](https://github.com/StudentPNZGTU/Others/blob/main/pom.xml) к папке проекта *my-app*)
+   
 4. Решите задачи курса пункта 5. Решение показано на курсе (без реализации)
 5. Зарегсистрируйтесь на [Github](https://github.com/), добавьте задание 
 

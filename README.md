@@ -8,6 +8,7 @@
 1. Желательная установка Linux. Ознакомьтесь и выберите для себя подходящий: [lnk](https://skillbox.ru/media/code/luchshie-distributivy-linux-kakuyu-versiyu-operatsionnoy-sistemy-vybrat/)
 2. Установка IDE (рекомендация [IntelliJCE](https://www.jetbrains.com/idea/download/?section=linux))
 	2.1 С терминала linux(*Интсрукция* [Here](https://www.jetbrains.com/help/idea/update.html#d3fe7716)):
+   
 	`sudo apt update`
 
 	`sudo apt install snap`

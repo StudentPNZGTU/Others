@@ -1,28 +1,23 @@
 package com.mycompany.app;
 
-import java.util.Scanner;
-
 /**
  * application
+ * limits: max num: int input
+ * end the program: exit
  */
 public class App
 {
     public static void main( String[] args )
     {
+        System.out.println("How many floors?");
+        int maximum = Elevator.recursiveInput();
+
         System.out.println( "How many times do we ride?" );
-        Scanner scanner = new Scanner(System.in);
-        int count = scanner.nextInt();
+        int count = Elevator.recursiveInput();
 
         System.out.println("Quantity elevators?");
-        int quantity = scanner.nextInt();
+        int quantity = Elevator.recursiveInput();
 
-        System.out.println("How many floors?");
-        int maximum = scanner.nextInt();
-
-        Elevators e = new Elevators();
-        e.max = maximum;
-        e.quantity = quantity;
-        e.count = count;
-        Elevator.countGenerate(e);
+        Elevator.countGenerate(maximum, quantity, count);
     }
 }

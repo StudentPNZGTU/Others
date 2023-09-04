@@ -1,6 +1,7 @@
 package com.mycompany.app;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -11,35 +12,52 @@ import java.util.Scanner;
 
 public class Elevator
 {
-    public static void countGenerate(Elevators e) {
-        e.elevators = new int[e.quantity];
+    private static Elevators e = new Elevators();
+    public static void countGenerate(int maximum, int quantity, int count) {
+        e.max = maximum;
+        e.quantity = quantity;
+        e.count = count;
+        e.elevators = new int[quantity];
         Arrays.fill(e.elevators, 1);
+
         int i = 0;
         while (i < e.count) {
-            elevator(recursiveInput(e), e);
+            System.out.println("Which floor will we go up/down to?");
+            elevator(recursiveInput());
             i++;
         }
-        System.out.println("-----------------------------------");
-        System.out.println("Well done, you've had a great ride)");
+        end();
     }
 
-    private static int recursiveInput(Elevators e) {
-        System.out.println("Which floor will we go up/down to?");
+    public static int recursiveInput() {
+
         Scanner scanner = new Scanner(System.in);
+        if (!scanner.hasNextInt()) {
+            if (scanner.hasNextLine() && Objects.equals(scanner.nextLine(), "exit")) {
+                end();
+                System.exit(0);
+            } else {
+                System.out.println("Enter an integer!");
+                return recursiveInput();
+            }
+        }
         int floor = scanner.nextInt();
+        if (e == null) {
+            return floor;
+        }
         if (floor > e.max || floor < 1) {
             System.out.println("Wrong floor!");
-            return recursiveInput(e);
+            return recursiveInput();
         }
         return floor;
     }
-    private static void elevator(int floorNum, Elevators e) {
-        int ind = SearchMin(floorNum, e);
+    private static void elevator(int floorNum) {
+        int ind = SearchMin(floorNum);
         System.out.println("We took the elevator under the number " + ind + " from the " + e.elevators[ind] + " floor");
         e.elevators[ind] = floorNum;
     }
 
-    private static int SearchMin(int floorNum, Elevators e) {
+    private static int SearchMin(int floorNum) {
         int min = 1000000000;
         int ind = 0;
         for (int i = 0; i < e.elevators.length; i++) {
@@ -50,11 +68,15 @@ public class Elevator
         }
         return ind;
     }
+    private static void end() {
+        System.out.println("-----------------------------------");
+        System.out.println("Well done, you've had a great ride)");
+    }
 }
 
 class Elevators {
-    int quantity;
-    int[] elevators;
-    int max;
-    int count;
+    int quantity = 0;
+    int[] elevators = new int[0];
+    int max = 1000000000;
+    int count = 0;
 }

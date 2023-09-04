@@ -1,7 +1,10 @@
 package com.mycompany.app;
 
 public class testAlgorithm {
-    public static int SearchMin(int floorNum, Elevators e) {
+
+    static Elevators e;
+    public static int SearchMin(int floorNum) {
+
         int min = 1000000000;
         int ind = 0;
         for (int i = 0; i < e.elevators.length; i++) {

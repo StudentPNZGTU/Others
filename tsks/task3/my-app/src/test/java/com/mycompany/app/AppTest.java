@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AppTest 
 {
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void testElevator()
     {
         Elevators e = new Elevators();
@@ -20,35 +20,36 @@ public class AppTest
         e.count = 10;
         e.elevators = new int[e.quantity];
         Arrays.fill(e.elevators, 1);
+        testAlgorithm.e = e;
 
-        int res = testAlgorithm.SearchMin(7, e);
+        int res = testAlgorithm.SearchMin(7);
         assertEquals(res, 0);
 
-        res = testAlgorithm.SearchMin(7, e);
+        res = testAlgorithm.SearchMin(7);
         assertEquals(res, 0);
 
-        res = testAlgorithm.SearchMin(3, e);
+        res = testAlgorithm.SearchMin(3);
         assertEquals(res, 1);
 
-        res = testAlgorithm.SearchMin(3, e);
+        res = testAlgorithm.SearchMin(3);
         assertEquals(res, 1);
 
-        res = testAlgorithm.SearchMin(4, e);
+        res = testAlgorithm.SearchMin(4);
         assertEquals(res, 1);
 
-        res = testAlgorithm.SearchMin(1, e);
+        res = testAlgorithm.SearchMin(1);
         assertEquals(res, 2);
 
-        res = testAlgorithm.SearchMin(10, e);
+        res = testAlgorithm.SearchMin(10);
         assertEquals(res, 0);
 
-        res = testAlgorithm.SearchMin(9, e);
+        res = testAlgorithm.SearchMin(9);
         assertEquals(res, 0);
 
-        res = testAlgorithm.SearchMin(8, e);
+        res = testAlgorithm.SearchMin(8);
         assertEquals(res, 0);
 
-        res = testAlgorithm.SearchMin(5, e);
+        res = testAlgorithm.SearchMin(5);
         assertEquals(res, 1);
     }
 }

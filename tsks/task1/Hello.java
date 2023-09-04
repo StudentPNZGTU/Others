@@ -9,5 +9,7 @@ class Hello {
         String name = scan.nextLine();
 
         System.out.println("Привет, " + name + "!");
+
+        scan.close();
     }
 }

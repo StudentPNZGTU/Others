@@ -12,16 +12,15 @@ public class App
         System.out.println("Determine the length of the dodecahedron : ");
         Scanner scan = new Scanner(System.in);
         if (!scan.hasNextDouble()) {
-            throw new ArithmeticException("Error type input");
+            throw new IncompatibleClassChangeError("Error type input");
         }
         System.out.println(volumeDodecahedron(scan.nextDouble()));
     }
 
     static double volumeDodecahedron(double a) {
-        if (a < 0) {
-            return -1;
+        if (a <= 0) {
+            throw new ArithmeticException("Number error length <= 0!");
         }
         return 7.663118960624632*Math.pow(a, 3);
     }
 }
-
